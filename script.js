@@ -117,13 +117,11 @@
       }, delay);
     }
 
-    // Pause while the person is actively touching/dragging or hovering,
-    // resume shortly after they let go.
+    // Pause only for an actual grab/drag or wheel scroll — hovering alone
+    // should not stop the drift (that's handled purely via CSS now).
     track.addEventListener('pointerdown', pause, { passive: true });
     track.addEventListener('pointerup', function(){ scheduleResume(1200); }, { passive: true });
     track.addEventListener('pointercancel', function(){ scheduleResume(1200); }, { passive: true });
-    track.addEventListener('mouseenter', pause);
-    track.addEventListener('mouseleave', function(){ scheduleResume(400); });
     track.addEventListener('wheel', function(){ pause(); scheduleResume(1500); }, { passive: true });
 
     function nudge(dir){
