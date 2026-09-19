@@ -505,12 +505,6 @@
   width: 100%;
 }
 
-.gift-body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .gift-guide{
   display: inline-flex;
   align-items: center;
@@ -531,6 +525,14 @@
 .gift-guide:hover{
   gap: 14px;
   opacity: 0.7;
+}
+
+p.desc {
+  padding: 10px 0px 0px 0px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 50ch;
 }
 
   /* ============ CLOSING  ============ */
@@ -601,7 +603,6 @@
     .lineup-track{ gap: 44px; }
     .gift{ padding: 88px 0 96px; }
     .gift-head{ margin-bottom: 44px; }
-    .wash-tag{ max-width: 440px; padding: 32px 32px 34px; }
     .closing{ padding: 96px 0 88px; }
     .closing h2{ font-size: 2.3rem; }
     .shop{ padding: 96px 0; }
@@ -624,7 +625,6 @@
     .swatch{ width: 168px; height: 168px; }
     .lineup-track{ gap: 56px; }
     .gift{ padding: 104px 0 112px; }
-    .wash-tag{ max-width: 460px; padding: 36px 36px 38px; }
     .closing{ padding: 112px 0 100px; }
     .closing h2{ font-size: 2.8rem; }
     .shop{ padding: 120px 0; }
