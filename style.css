@@ -130,7 +130,12 @@
     color: var(--paper);
     transition: color 0.3s ease;
   }
-  header.site.scrolled .logo{ color:#465E78; }
+  header.site.scrolled .logo{
+    letter-spacing: 0.3em;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color:#465E78;
+}
   .menu-btn{
     display:flex;
     flex-direction: column;
