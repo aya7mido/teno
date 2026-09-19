@@ -1,6 +1,58 @@
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Header: solid background once the hero scrolls away ---------- */
+  var header = document.getElementById('siteHeader');
+  var hero = document.querySelector('.hero');
+  if(header && hero){
+    if('IntersectionObserver' in window){
+      var headerIo = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          header.classList.toggle('scrolled', !entry.isIntersecting);
+        });
+      }, { threshold: 0, rootMargin: '-1px 0px 0px 0px' });
+      headerIo.observe(hero);
+    } else {
+      window.addEventListener('scroll', function(){
+        header.classList.toggle('scrolled', window.scrollY > hero.offsetHeight - 10);
+      }, { passive: true });
+    }
+  }
+
+  /* ---------- Mobile nav drawer ---------- */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var navBackdrop = document.getElementById('navBackdrop');
+  var navClose = document.getElementById('navClose');
+
+  function openNav(){
+    mobileNav.classList.add('is-open');
+    navBackdrop.classList.add('is-open');
+    menuBtn.classList.add('is-open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    mobileNav.setAttribute('aria-hidden', 'false');
+  }
+  function closeNav(){
+    mobileNav.classList.remove('is-open');
+    navBackdrop.classList.remove('is-open');
+    menuBtn.classList.remove('is-open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+  }
+  if(menuBtn && mobileNav && navBackdrop && navClose){
+    menuBtn.addEventListener('click', function(){
+      mobileNav.classList.contains('is-open') ? closeNav() : openNav();
+    });
+    navClose.addEventListener('click', closeNav);
+    navBackdrop.addEventListener('click', closeNav);
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeNav);
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeNav();
+    });
+  }
+
   /* ---------- Reveal on scroll ---------- */
   var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window && !reduceMotion){

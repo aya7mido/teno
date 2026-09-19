@@ -16,25 +16,40 @@
 <body>
 
   <!-- HEADER -->
-  <header class="site">
+  <header class="site" id="siteHeader">
     <div class="logo">TENO</div>
-    <button class="menu-btn" aria-label="メニューを開く">
+    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileNav">
       <span></span><span></span><span></span>
     </button>
   </header>
 
+  <!-- NAV DRAWER -->
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <button class="nav-close" id="navClose" aria-label="メニューを閉じる">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#lineupTrack">LINEUP</a></li>
+      <li><a href="#">SHOP</a></li>
+      <li><a href="#">gift</a></li>
+      <li><a href="#">ABOUT</a></li>
+    </ul>
+    <div class="nav-sns">
+      <a href="#" aria-label="Instagram">INSTAGRAM</a>
+      <a href="#" aria-label="X">X</a>
+    </div>
+  </nav>
+
   <!-- HERO -->
   <section class="hero" role="img" aria-label="ブルーのタオルの質感写真">
-    <div class="hero-copy">
-      <p class="eyebrow-en">DAILY<br>TEXTILES<br>FOR A CALMER<br>TODAY</p>
-    </div>
   </section>
 
   <!-- INTRO -->
   <section class="intro reveal">
     <div class="inner intro-inner">
       <div>
-        <p class="jp-lead">SOFTNESS, MADE SIMPLE.</p>
+        <p class="jp-lead">毎日に、やさしい心地よさを。</p>
         <p class="desc">TENOは、触れた瞬間のやわらかさと、<br>
           暮らしに馴染むシンプルなデザインを大切にした<br>ハンドタオルブランドです。</p>
         <div class="rule"></div>
@@ -49,9 +64,9 @@
   <!-- LINEUP -->
   <section class="lineup">
     <div class="lineup-head reveal">
-      <h2>LINEUP</h2>
-      <div class="lineup-nav">
-        <span class="lineup-count" id="lineupCount">01 / 04</span>
+<div></div>
+<div class="lineup-nav">
+        <span class="lineup-count" id="lineupCount">01 / 06</span>
         <span class="nav-dash"></span>
         <button class="nav-btn prev" id="prevBtn" aria-label="前の商品">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -98,6 +113,10 @@
         <div class="rule"></div>
       </div>
     </div>
+
+    <div class="lineup-cta reveal">
+      <a class="btn-outline" href="#">ONLINE STORE</a>
+    </div>
   </section>
 
     <!-- SHOP -->
@@ -112,71 +131,30 @@
         </div>
         <div class="shop-copy">
           <p class="desc">2026年1月、富山県富山市に初の店舗をオープン。<br>店内には数々のラインナップを取り揃え終えています。<br>気軽に立ち寄れる、居心地の良い空間で、ゆっくりとお買い物を楽しんでいただけます。</p>
+
+          <div class="shop-info">
+            <div class="shop-info-row"><span class="shop-info-label">ADDRESS</span>富山県富山市●●1-2-3</div>
+            <div class="shop-info-row"><span class="shop-info-label">HOURS</span>11:00 – 19:00(火曜定休)</div>
+          </div>
+
+          <a class="gift-guide access-guide reveal" href="#">
+            ACCESS
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CARE -->
-  <section class="care">
-    <div class="inner care-inner">
-      <div class="care-head reveal">
-        <h2>CARE</h2>
+  <!-- GIFT -->
+  <section class="gift">
+    <div class="inner gift-inner">
+      <div class="gift-head reveal">
+        <h2>GIFT</h2>
+      <img src="image/gift.png" alt="ギフトボックス">
       </div>
-
-      <div class="care-body reveal">
-        <div class="wash-tag">
-          <div class="cotton">100% COTTON</div>
-
-          <div class="wash-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <rect x="3" y="4" width="18" height="15" rx="2" />
-              <circle cx="12" cy="12" r="4.5" /><text x="12" y="13.5" font-size="4.5" text-anchor="middle"
-                fill="currentColor" stroke="none">40</text>
-            </svg>
-            <div class="wtext"><span class="wtext-en">MACHINE WASH AT 40℃</span><span
-                class="wtext-jp">洗濯機で洗えます(水温40℃まで)</span></div>
-          </div>
-          <div class="wash-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M4 3l16 18M20 3L4 21" />
-              <path d="M4 6h16v12H4z" opacity="0.5" />
-            </svg>
-            <div class="wtext"><span class="wtext-en">DO NOT BLEACH</span><span class="wtext-jp">漂白剤は使用しないでください</span>
-            </div>
-          </div>
-          <div class="wash-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <rect x="3" y="4" width="18" height="15" rx="2" />
-              <circle cx="12" cy="12" r="4.5" />
-            </svg>
-            <div class="wtext"><span class="wtext-en">TUMBLE DRY, LOW HEAT</span><span
-                class="wtext-jp">低温でタンブル乾燥ができます</span></div>
-          </div>
-          <div class="wash-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M3 19h13a3 3 0 0 0-2-5H8L3 9" />
-            </svg>
-            <div class="wtext"><span class="wtext-en">IRON, MEDIUM HEAT</span><span
-                class="wtext-jp">中温でアイロンをかけられます</span></div>
-          </div>
-          <div class="wash-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M6 6l12 12" />
-            </svg>
-            <div class="wtext"><span class="wtext-en">DO NOT DRY CLEAN</span><span
-                class="wtext-jp">ドライクリーニングはお控えください</span></div>
-          </div>
-
-          <div class="brand">
-            <div class="b1">TENO</div>
-            <div class="b2">DAILY TEXTILES<br>FOR A CALMER TODAY</div>
-          </div>
-        </div>
-
-        <a class="care-guide reveal" href="#">
-          CARE GUIDE
+        <a class="gift-guide reveal" href="#">
+          GIFT GUIDE
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
@@ -188,13 +166,20 @@
   <!-- CLOSING -->
   <section class="closing reveal">
     <div class="inner closing-inner">
-      <h2>SOFTNESS,<br>MADE SIMPLE.</h2>
+      <h2>SOFTNESS<br>MADE SIMPLE</h2>
       <div class="rule" style="margin:0 auto 14px;"></div>
       <p class="foot-brand"><span class="b">TENO</span></p>
     </div>
   </section>
 
-  <footer class="legal">© TENO — DAILY TEXTILES FOR A CALMER TODAY</footer>
+  <footer class="legal">
+    <div class="footer-sns">
+      <a href="#">INSTAGRAM</a>
+      <a href="#">X</a>
+      <a href="#">CONTACT</a>
+    </div>
+    <p>© TENO — DAILY TEXTILES FOR A CALMER TODAY</p>
+  </footer>
 
 </body>
 <script src="script.js"></script>
