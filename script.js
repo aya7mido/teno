@@ -5,18 +5,26 @@
   var header = document.getElementById('siteHeader');
   var hero = document.querySelector('.hero');
   if(header && hero){
-    if('IntersectionObserver' in window){
-      var headerIo = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          header.classList.toggle('scrolled', !entry.isIntersecting);
-        });
-      }, { threshold: 0, rootMargin: '-1px 0px 0px 0px' });
-      headerIo.observe(hero);
-    } else {
-      window.addEventListener('scroll', function(){
-        header.classList.toggle('scrolled', window.scrollY > hero.offsetHeight - 10);
-      }, { passive: true });
+    // Measured once, before any scrolling, while the header is still in its
+    // tall "unscrolled" state — this is the buffer used to decide the
+    // switch point. To make the switch happen earlier/later on purpose,
+    // add or subtract a fixed number of pixels here, e.g. `headerHeight + 40`.
+    var headerHeight = header.getBoundingClientRect().height;
+    var ticking = false;
+    function updateHeaderState(){
+      var heroBottom = hero.getBoundingClientRect().bottom;
+      header.classList.toggle('scrolled', heroBottom <= headerHeight);
+      ticking = false;
     }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ requestAnimationFrame(updateHeaderState); ticking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', function(){
+      if(!header.classList.contains('scrolled')){
+        headerHeight = header.getBoundingClientRect().height;
+      }
+    });
+    updateHeaderState();
   }
 
   /* ---------- Mobile nav drawer ---------- */
