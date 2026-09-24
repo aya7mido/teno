@@ -233,7 +233,7 @@
   /* ============ HERO ============ */
 .hero{
   position: relative;
-  height: 92vh;
+  height: 100vh;
   min-height: 420px;
   overflow: hidden;
 }
@@ -607,7 +607,6 @@ p.desc {
     .swatch{ width: 140px; height: 140px; }
     .lineup-track{ gap: 44px; }
     .gift{ padding: 88px 0 96px; }
-    .gift-head{ margin-bottom: 44px; }
     .closing{ padding: 96px 0 88px; }
     .closing h2{ font-size: 2.3rem; }
     .shop{ padding: 96px 0; }
